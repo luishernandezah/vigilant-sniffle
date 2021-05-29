@@ -1,0 +1,50 @@
+.contenedo{
+    margin: auto;
+}
+.ofecta{
+    display: flex;
+    flex-direction: column;
+}
+
+.datosuno{
+    width: 100%;
+    height: 30vh;
+    display: flex;
+
+}
+%module{
+    width: 50%;
+    height: auto;
+    margin: auto;
+    
+}
+.selectordatosuno{
+    @extend %module
+}
+.inputdatosuno{
+    @extend %module
+}
+.datosdos{
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    margin: auto;
+
+}
+%module2{
+    width: 50%;
+    height: 50vh;
+    margin: auto;
+   
+}
+.characteristicsdatosdos{
+    @extend %module2
+}
+
+.pricesdatosdos{
+    @extend %module2;
+
+}
+p{
+    text-align: center;
+}

@@ -1,0 +1,28 @@
+
+
+.tamano{
+    font-size: 500%;
+  
+  }
+  img {
+    width: 70%;
+    height: 70%;
+    }
+  @media screen and (min-width: 700px) and (max-width: 1500px) {
+    img {
+      width: 60%;
+      height: 60%;
+      }
+   }
+  a {
+    text-decoration: none;
+    color: blue;
+  }
+  .btna{
+    text-decoration: none !important;
+    color: blue !important;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  

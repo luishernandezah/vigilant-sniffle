@@ -1,0 +1,291 @@
+<form  [formGroup]="formu">
+    <div class="form-group">
+    <div class="form-group">
+      <label for="exampleInputName">Nombre</label>
+      <input name="nombre" formControlName="nombre" type="text" class="form-control" id="exampleInputName"  placeholder="Pepito">
+      <mat-error *ngIf="getError('nombre')">{{ getError('nombre')}}</mat-error>
+              
+    </div>
+    <div class="form-group">
+      <label for="exampleInputApellido">Apellido</label>
+      <input name="apellido" formControlName="apellido"  type="text" class="form-control" id="exampleInputApellido" placeholder="Pepito">
+      <mat-error *ngIf="getError('apellido')">{{ getError('apellido')}}</mat-error>
+    </div>
+        
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="inputId">Tipo de Identificación:</label>
+            <select formControlName="idt" name="idt" id="inputId" class="form-control">
+              <option  [value]="'C.C'">C.C</option>
+              <option  [value]="'T.I'">T.I</option>
+              <option  [value]="'C.E'">C.E</option>
+              <option  [value]="'No tiene'">No tiene</option>
+            </select>
+            <mat-error *ngIf="getError('idt')">{{ getError('idt')}}</mat-error>
+          </div>
+        <div class="form-group col-md-4">
+          <label for="inputCedula">Número de Identificación:</label>
+          <input formControlName="cedula" name="cedula" type="number" class="form-control" id="inputCedula">
+          <mat-error *ngIf="getErrornumero('cedula')">{{ getErrornumero('cedula')}}</mat-error>
+        </div>
+        
+        <div class="form-group col-md-2">
+            <label for="inputSexo">SEXO</label>
+            <select formControlName="sexo" name="sexo" id="inputSexo" class="form-control">
+              <option  [value]="'H'">H</option>
+              <option  [value]="'M'">M</option>
+              <option  [value]="'T'">T</option>
+  
+            </select>
+            <mat-error *ngIf="getError('sexo')">{{ getError('sexo')}}</mat-error>
+          </div>
+        <div class="form-group col-md-2">
+            <label for="inputedad">EDAD</label>
+            <input formControlName="edad" name="edad" type="number" class="form-control" id="inputedad">
+            <mat-error *ngIf="getErrornumero('edad')">{{ getErrornumero('edad')}}</mat-error>
+          </div>
+      </div>
+      <div class="form-row">
+       
+        <div class="col">
+            <p>Grupo Étnico:</p>
+          </div>
+         
+              <mat-radio-group name="opciones" name="grupoEtnico" formControlName="grupoEtnico"  >
+                <mat-radio-button *ngFor="let op of datosform"  [value]="op.value"   style="margin: 10px" >
+                  {{op.nombre}}
+                </mat-radio-button>
+                <mat-error *ngIf="getError('grupoEtnico')">{{ getError('grupoEtnico')}}</mat-error>
+              </mat-radio-group>
+        </div>
+
+        <div class="form-row"  formGroupName="resguardo">
+       
+            <label for="staticEmail" class="form-inline col-sm-4 col-form-label">Resguardo:</label>
+           
+            <div class="form-check form-check-inline col-md-2">
+                <input    formControlName="activo" name="activo" class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios3" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                 Si
+                </label>
+                   </div>
+            <div class="form-group col-md-5">
+              <label for="inputCity">Cuál</label>
+              <input  formControlName="datos" name="datos"  type="text" class="form-control" id="inputCity">
+            
+            </div>
+            <mat-error *ngIf="datos('resguardo.datos')">{{ datos('resguardo.datos')}}</mat-error>
+          </div>
+
+          <div class="form-row" formGroupName="cabillo">
+       
+            <label for="staticEmail" class="form-inline col-sm-4 col-form-label">Cabildo</label>
+           
+            <div class="form-check form-check-inline col-md-2">
+                <input formControlName="activo" name="activo"  class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios3" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                 Si
+                </label>
+                <mat-error *ngIf="datos('cabillo.datos')">{{ datos('cabillo.datos')}}</mat-error>
+              </div>
+            <div class="form-group col-md-5">
+              <label for="inputCual">Cuál</label>
+              <input  formControlName="datos"  name="datos" type="text" class="form-control" id="inputCual">
+            </div>
+            <mat-error *ngIf="datos('cabillo.datos')">{{ datos('cabillo.datos')}}</mat-error>
+          </div>
+
+          <div class="form-row">
+       
+            <label for="staticEmail" class="form-inline col-sm-4 col-form-label">Pueblo Indígena al que pertenece:</label>
+           
+         
+            <div class="form-group col-md-6">
+              <label for="inputCity">Cuál</label>
+              <input formControlName="puebloindigena"  name="puebloindigena" type="text" class="form-control" id="inputCity">
+              <mat-error *ngIf="getError('puebloindigena')">{{ getError('puebloindigena')}}</mat-error>
+             </div>
+            
+          </div>
+
+
+          <div class="form-row" formGroupName="consejocomunitario">
+       
+            <label for="staticEmail" class="form-inline col-sm-4 col-form-label">Consejo comunitario:</label>
+           
+            <div class="form-check form-check-inline col-md-2">
+                <input formControlName="activo" name="activo"  class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios3" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                 Si
+                </label>
+                <mat-error *ngIf="datos('consejocomunitario.activo')">{{ datos('consejocomunitario.activo')}}</mat-error> 
+              </div>
+            <div class="form-group col-md-5">
+              <label for="inputCity">Cuál</label>
+              <input formControlName="datos"  name="datos" type="text" class="form-control" id="inputCity">
+              <mat-error *ngIf="datos('consejocomunitario.datos')">{{ datos('consejocomunitario.datos')}}</mat-error> 
+          
+            </div>
+            
+          </div>
+     <div class="form-row" formGroupName="orgAftocolombia">
+       
+            <label for="staticEmail" class="form-inline col-sm-4 col-form-label">Org. Afrocolombiana:</label>
+           
+            <div class="form-check form-check-inline col-md-2">
+                <input formControlName="activo" name="activo" class="form-check-input" type="checkbox" name="gridRadios" id="gridRadios3" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                 Si
+                </label>
+                <mat-error *ngIf="datos('orgAftocolombia.activo')">{{ datos('orgAftocolombia.activo')}}</mat-error> 
+          
+              </div>
+            <div class="form-group col-md-5">
+              <label for="inputCity">Cuál</label>
+              <input formControlName="datos"  name="datos" type="text" class="form-control" id="inputCity">
+              <mat-error *ngIf="datos('orgAftocolombia.datos')">{{ datos('orgAftocolombia.datos')}}</mat-error> 
+          
+            </div>
+            
+          </div>
+
+          <div class="form-row">
+       
+            <label for="staticEmail" class="form-inline col-sm-4 col-form-label">Otra:</label>
+           
+         
+            <div class="form-group col-md-6">
+              <label for="inputCity">Cuál</label>
+              <input formControlName="otroPert"  name="otroPert" type="text" class="form-control" id="inputCity">
+              <mat-error *ngIf="getError('otroPert')">{{ getError('otroPert')}}</mat-error>
+             
+            </div>
+            
+          </div>
+
+          <div class="form-row">
+         
+            <div class="col">
+                <label for="inputDireccion">Dirección/Vereda/Barrio:</label>
+              <input formControlName="direccion" name="direccion" id="inputDireccion" type="text" class="form-control" placeholder="State">
+              <mat-error *ngIf="getError('direccion')">{{ getError('direccion')}}</mat-error>
+            </div>
+            <div class="col">
+                <label for="inputmunicipio">Municipio:</label>
+              <input  id="inputmunicipio" formControlName="municipio" name="municipio"  type="text" class="form-control" placeholder="Zip">
+              <mat-error *ngIf="getError('municipio')">{{ getError('municipio')}}</mat-error>
+            </div>
+          </div>
+
+          
+          <div class="form-row">
+         
+            <div class="col">
+                <label for="inputPassword6">Teléfono / Celular:</label>
+              <input formControlName="telefono" name="telefono"  type="number" class="form-control" placeholder="State">
+              <mat-error *ngIf="getErrornumero('telefono')">{{ getErrornumero('telefono')}}</mat-error>
+            </div>
+            <div class="col">
+                <label for="inputPassword6">Correo:</label>
+              <input  formControlName="correo"  name="correo" type="email" class="form-control" placeholder="Zip">
+              <mat-error *ngIf="getError('correo')">{{ getError('correo')}}</mat-error>
+            </div>
+          </div>
+
+
+          <div class="form-row" formGroupName="hogar">
+       
+            <label for="staticEmail" class="form-inline col-sm-2 col-form-label">¿Usted es cabeza de hogar?</label>
+           
+            <div class="form-check form-check-inline col-md-4">
+              <mat-radio-group name="activo" name="activo" formControlName="activo"  >
+                <mat-radio-button *ngFor="let ops of opcion"  [value]="ops.value"   style="margin: 10px" >
+                  {{ops.nombre}}
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputhogar">Cuál es su rol dentro del hogar?</label>
+              <textarea formControlName="datos"  name="datos"  type="text" class="form-control" id="inputhogar"></textarea>
+              <mat-error *ngIf="datos('hogar.datos')">{{ datos('hogar.datos')}}</mat-error> 
+          
+            </div>
+            
+          </div> 
+
+          <div class="form-row" formGroupName="proceso">
+       
+            <label for="activaye" class="form-inline col-sm-2 col-form-label">¿Usted ha participado en otros procesos de capacitación?</label>
+           
+
+            <div class="form-check form-check-inline col-md-4">
+              
+              <mat-radio-group aria-label="Select an option"  formControlName="activo"  >
+                <mat-radio-button *ngFor="let op of opcion"  [value]="op.value"   style="margin: 10px" >
+                  {{op.nombre}}
+                </mat-radio-button>
+              </mat-radio-group>
+              <mat-error *ngIf="datos('proceso.activo')">{{ datos('proceso.activo')}}</mat-error> 
+            </div>
+
+            <div class="form-group col-md-5">
+                <label for="inputPassword6">Cuál</label>
+              <input formControlName="datos"  name="datos"  type="text" class="form-control" id="inputPassword6">
+              <mat-error *ngIf="datos('proceso.datos')">{{ datos('proceso.datos')}}</mat-error> 
+            </div>
+            
+          </div> 
+
+
+          <div class="form-row">
+       
+            <label for="staticdiscpadi" class="form-inline col-sm-6 col-form-label">Usted presenta alguna discapacidad:</label>
+           
+           
+              <mat-radio-group name="opciones" name="discapacidad" formControlName="discapacidad"  >
+                <mat-radio-button *ngFor="let op of opcion"  [value]="op.value"   style="margin: 10px" >
+                  {{op.nombre}}
+                </mat-radio-button>
+              </mat-radio-group>
+              <mat-error *ngIf="getError('discapacidad')">{{ getError('discapacidad')}}</mat-error>
+         
+          </div> 
+
+       
+          <div class="form-row">
+            <div class="form-group col-md-6">
+            
+                <label for="inputorganizacion">Nombre organización:</label>
+                <input formControlName="nombreorganizacion" name="nombreorganizacion"  type="text" class="form-control" id="inputorganizacion">
+                <mat-error *ngIf="getError('nombreorganizacion')">{{ getError('nombreorganizacion')}}</mat-error>
+              </div>
+            <div class="form-group col-md-6">
+              <label for="inputcargo">Cargo / Rol:</label>
+              <input  formControlName="cargorol" name="cargorol"   type="text" class="form-control" id="inputcargo">
+              <mat-error *ngIf="getError('cargorol')">{{ getError('cargorol')}}</mat-error>
+          
+            </div>
+            
+          </div>
+
+          <div class="form-row">
+       
+            <label for="statichuella" class="form-inline col-sm-2 col-form-label">Firma y/o huella beneficiario:</label>
+            
+            <div class="form-group col-md-5">
+          
+              <textarea formControlName="firma" name="firma"  type="text" class="form-control" id="statichuella"></textarea>
+            
+            </div>
+            <mat-error *ngIf="getError('firma')">{{ getError('firma')}}</mat-error>
+          </div> 
+
+          <div class="row">
+            <div class="col text-center">
+                <button [disabled]="buttons"  (click)="send()" type="submit" class="btn btn-primary center-block">{{texto}}</button>
+            </div>
+          </div>
+ 
+  </form>
+

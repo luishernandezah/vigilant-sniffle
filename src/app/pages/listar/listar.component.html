@@ -1,0 +1,16 @@
+
+<div class="container" >
+    <div *ngIf="datos?.length > 0 else nohay" >
+        <app-listarcomponent  [datos]="datos"> 
+
+        </app-listarcomponent>
+    </div>
+   <ng-template #nohay>
+    <div class="alert alert-primary" role="alert">
+        No hay datos
+      </div>
+   </ng-template>
+   
+
+</div>
+

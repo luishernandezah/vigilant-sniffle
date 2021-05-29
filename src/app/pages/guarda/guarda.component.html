@@ -1,0 +1,13 @@
+<div class="container">
+<div class="query">
+    <app-querydocumento  (Eventos)="consulta($event)" ></app-querydocumento>
+    <div  class="alert alert-primary" role="alert" *ngIf="messaje">
+        no existe la información solicitada
+      </div>
+   
+</div>
+<div>
+    <app-formulario [buttons]="buttons" [formu]="formu" [texto]="'GUARDAR'" (Eventos)="guarda($event)" ></app-formulario>
+</div>
+</div>
+

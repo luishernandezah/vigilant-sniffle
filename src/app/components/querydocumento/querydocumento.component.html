@@ -1,0 +1,9 @@
+<form class="form-inline" autocomplete="off" (ngSubmit)="consultar( forma )" #forma="ngForm">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="inputdocument" class="sr-only">DOCUMENTOS</label>
+      <input type="number" [(ngModel)]="consulta"
+      name="consulta"
+      class="form-control" id="inputdocument" placeholder="inputdocument">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Consulta</button>
+  </form>
